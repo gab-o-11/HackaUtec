@@ -3,18 +3,19 @@ import os
 
 def lambda_handler(event, context):
     try:
-        # Obtenemos el contenido del diagrama desde el body del request
-        chart_lines = event.get("lines", [])
+        data = json.loads(event.get("body", "{}"))
 
-        if not chart_lines:
+        chart_lines = data.get("chart", [])
+
+        if not chart_lines or not isinstance(chart_lines, list):
             return {
                 "statusCode": 400,
                 "body": json.dumps({"error": "No se recibieron líneas para el diagrama."})
             }
 
         chart = "\n".join(chart_lines)
-        
-        # Guardamos en /tmp (directorio permitido por Lambda)
+
+
         file_path = "/tmp/state_diagram.mmd"
         with open(file_path, "w") as f:
             f.write(chart)
