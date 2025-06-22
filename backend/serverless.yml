@@ -30,7 +30,7 @@ functions:
           cors: true
           integration: lambda
   jsondiagram:
-    handler: auth/jsondiagram.lambda_handler
+    handler: diagram/jsondiagram.lambda_handler
     events:
       - http:
           path: diagram/jsondiagram
