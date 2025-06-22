@@ -29,6 +29,14 @@ functions:
           method: post
           cors: true
           integration: lambda
+  jsondiagram:
+    handler: auth/jsondiagram.lambda_handler
+    events:
+      - http:
+          path: auth/jsondiagram
+          method: post
+          cors: true
+          integration: lambda
 
 resources:
   Resources:
