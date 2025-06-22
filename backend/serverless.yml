@@ -1,5 +1,5 @@
 org: gaboooo
-service: api-pelicula
+service: api-register-login
 
 provider:
   name: aws
@@ -10,7 +10,7 @@ provider:
   iam:
     role: arn:aws:iam::044477782735:role/LabRole
   environment:
-    TABLE_NAME: ${sls:stage}-t_peliculas
+    TABLE_NAME: ${sls:stage}-t_usuarioshack
 
 functions:
   crear:
@@ -35,7 +35,7 @@ resources:
     UsuariosTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: t_usuarios
+        TableName: t_usuarioshack
         AttributeDefinitions:
           - AttributeName: user_id
             AttributeType: S
@@ -47,7 +47,7 @@ resources:
     TokensTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: t_tokens_acceso
+        TableName: t_tokens_accesohack
         AttributeDefinitions:
           - AttributeName: token
             AttributeType: S

@@ -19,7 +19,7 @@ def lambda_handler(event, context):
         }
 
     dynamodb = boto3.resource('dynamodb')
-    usuarios_table = dynamodb.Table('t_usuarios')
+    usuarios_table = dynamodb.Table('t_usuarioshack')
     response = usuarios_table.get_item(Key={'user_id': user_id})
 
     if 'Item' not in response:

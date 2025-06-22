@@ -1,0 +1,6 @@
+
+venv/
+*.mmd
+*.svg
+*.png
+.vscode/
