@@ -4,18 +4,23 @@ import os
 def lambda_handler(event, context):
     try:
         data = json.loads(event.get("body", "{}"))
+        chart_input = data.get("chart")
 
-        chart_lines = data.get("chart", [])
-
-        if not chart_lines or not isinstance(chart_lines, list):
+        if not chart_input:
             return {
                 "statusCode": 400,
-                "body": json.dumps({"error": "No se recibieron líneas para el diagrama."})
+                "body": json.dumps({"error": "No se recibió contenido para el diagrama."})
             }
 
-        chart = "\n".join(chart_lines)
-
-
+        if isinstance(chart_input, list):
+            chart = "\n".join(chart_input)
+        elif isinstance(chart_input, str):
+            chart = chart_input
+        else:
+            return {
+                "statusCode": 400,
+                "body": json.dumps({"error": "El formato de 'chart' no es válido. Usa string o lista de líneas."})
+            }
         file_path = "/tmp/state_diagram.mmd"
         with open(file_path, "w") as f:
             f.write(chart)
