@@ -13,7 +13,7 @@ provider:
     TABLE_NAME: ${sls:stage}-t_usuariosHack
 
 functions:
-  crear:
+  register:
     handler: auth/register.lambda_handler
     events:
       - http:
