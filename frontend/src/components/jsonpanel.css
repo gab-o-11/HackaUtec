@@ -1,0 +1,20 @@
+.json-panel {
+  width: 500px;
+  height: 350px;
+  background-color: #f8e8e8;
+  border: 2px solid #00aaff;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.panel-header {
+  background-color: #e9dab0;
+  padding: 8px;
+  font-weight: bold;
+  color: violet;
+}
+
+.panel-body {
+  flex: 1;
+}

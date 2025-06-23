@@ -1,0 +1,22 @@
+.home {
+  background-color: #2f2f2f;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-container {
+  display: flex;
+  flex-direction: row; /* Esta es la clave */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: flex-start; /* Alinea arriba */
+  gap: 20px; /* Espacio entre los paneles */
+  padding: 20px;
+}
+
+.panel-wrapper {
+  width: 700px;
+  height: 450px;
+}
+
+
